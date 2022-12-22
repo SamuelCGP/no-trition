@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/PlayerForm.gd" type="Script" id=1]
+[ext_resource path="res://textures/particle/hungry_walk.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+speed = 50
+jump_force = 200
+particle_amount = 3
+particle = ExtResource( 2 )

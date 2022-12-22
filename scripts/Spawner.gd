@@ -4,7 +4,7 @@ class_name Spawner
 const MIN_WAIT_TIME = 2.5
 const MAX_WAIT_TIME = 4.5
 
-var donut_scene = preload('res://scenes/donut.tscn') as PackedScene
+var donut_scene = preload("res://scenes/donut/Donut.tscn") as PackedScene
 
 func _ready() -> void:
 	connect('timeout', self, 'timeout')

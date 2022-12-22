@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/PlayerForm.gd" type="Script" id=1]
+[ext_resource path="res://textures/particle/fat_walk.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+speed = 150
+jump_force = 400
+particle_amount = 6
+particle = ExtResource( 2 )

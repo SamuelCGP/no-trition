@@ -1,13 +1,11 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://scenes/donut.tscn" type="PackedScene" id=1]
-[ext_resource path="res://HungryMan.gd" type="Script" id=2]
-[ext_resource path="res://textures/character/hungry.png" type="Texture" id=3]
-[ext_resource path="res://pixel.tres" type="DynamicFont" id=4]
-[ext_resource path="res://textures/character/fat.png" type="Texture" id=5]
+[ext_resource path="res://scenes/donut/Donut.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/hungry_man/HungryMan.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/fonts/pixel.tres" type="DynamicFont" id=4]
 [ext_resource path="res://textures/tiles/map.png" type="Texture" id=6]
-[ext_resource path="res://Spawner.gd" type="Script" id=7]
-[ext_resource path="res://score_label.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Spawner.gd" type="Script" id=7]
+[ext_resource path="res://scripts/score_label.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=25]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -179,103 +177,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 0/z_index = 0
 
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 5 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 5 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 5 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 5 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 64, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 3 )
-region = Rect2( 96, 64, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 3 )
-region = Rect2( 128, 64, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 3 )
-region = Rect2( 160, 64, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=14]
-animations = [ {
-"frames": [ SubResource( 23 ) ],
-"loop": true,
-"name": "fat_idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "fat_walk",
-"speed": 16.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "hungry_idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": true,
-"name": "hungry_walk",
-"speed": 12.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 6, 14 )
-
-[sub_resource type="CircleShape2D" id=42]
-radius = 16.0
-
 [node name="World" type="Node2D"]
 
 [node name="DevTips" type="Label" parent="."]
@@ -283,7 +184,8 @@ margin_left = 6.0
 margin_top = -52.0
 margin_right = 195.0
 margin_bottom = -38.0
-text = "aperta Z para mudar de forma"
+text = "Z para 1° forma
+X para 2° forma"
 
 [node name="ScoreLabel" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.196078 )
@@ -306,28 +208,7 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 65534, 0, 0, 65535, 0, 2, 20, 0, 0, 21, 0, 2, 131070, 0, 65536, 131071, 0, 65538, 65556, 0, 65536, 65557, 0, 65538, 196606, 0, 65536, 196607, 0, 65538, 131092, 0, 65536, 131093, 0, 65538, 262142, 0, 65536, 262143, 0, 65538, 196628, 0, 65536, 196629, 0, 65538, 327678, 0, 65536, 327679, 0, 65538, 262164, 0, 65536, 262165, 0, 65538, 393214, 0, 65536, 393215, 0, 65538, 327700, 0, 65536, 327701, 0, 65538, 458750, 0, 65536, 458751, 0, 65538, 393236, 0, 65536, 393237, 0, 65538, 524286, 0, 65536, 524287, 0, 65538, 458772, 0, 65536, 458773, 0, 65538, 589822, 0, 65536, 589823, 0, 65538, 524308, 0, 65536, 524309, 0, 65538, 655358, 0, 65536, 655359, 0, 65538, 589844, 0, 65536, 589845, 0, 65538, 720894, 0, 65536, 720895, 0, 0, 655360, 0, 1, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 1, 655375, 0, 1, 655376, 0, 1, 655377, 0, 1, 655378, 0, 1, 655379, 0, 1, 655380, 0, 0, 655381, 0, 65538, 786430, 0, 131072, 786431, 0, 131073, 720896, 0, 131073, 720897, 0, 131073, 720898, 0, 131073, 720899, 0, 131073, 720900, 0, 131073, 720901, 0, 131073, 720902, 0, 131073, 720903, 0, 131073, 720904, 0, 131073, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 131073, 720908, 0, 131073, 720909, 0, 131073, 720910, 0, 131073, 720911, 0, 131073, 720912, 0, 131073, 720913, 0, 131073, 720914, 0, 131073, 720915, 0, 131073, 720916, 0, 131073, 720917, 0, 131074 )
 
-[node name="HungryMan" type="KinematicBody2D" parent="."]
-position = Vector2( 74, 139 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="AnimatedSprite" parent="HungryMan"]
-position = Vector2( 0, 14 )
-frames = SubResource( 14 )
-animation = "hungry_idle"
-frame = 1
-playing = true
-offset = Vector2( 0, -14 )
-
-[node name="HungryShape" type="CollisionShape2D" parent="HungryMan"]
-position = Vector2( -1, 0 )
-shape = SubResource( 4 )
-
-[node name="FatShape" type="CollisionShape2D" parent="HungryMan"]
-shape = SubResource( 42 )
-disabled = true
+[node name="HungryMan" parent="." instance=ExtResource( 2 )]
 
 [node name="Donut" parent="." instance=ExtResource( 1 )]
 position = Vector2( 304, 0 )
