@@ -3,8 +3,8 @@
 
 - [x] ~Samuel~
 - [X] ~Cauê~
-- [ ] Matheus
+- [X] ~Matheus~
 - [ ] Luis
 - [ ] Barca
-- [ ] Kayky
+- [X] ~Kayky~
 - [ ] Pedro
