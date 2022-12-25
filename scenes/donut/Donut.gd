@@ -14,3 +14,7 @@ func _physics_process(delta: float) -> void:
 	if position.y >= MAXIMUM_Y:
 		GameManager.score += 1
 		queue_free()
+
+func _on_Donut_body_entered(body) -> void:
+	if (body.name == "HungryMan"):
+		GameManager.life -= 1

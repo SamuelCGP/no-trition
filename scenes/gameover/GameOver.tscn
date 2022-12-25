@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/fonts/pixel.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/fonts/pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/styles/TryAgainButton.tres" type="StyleBox" id=3]
+[ext_resource path="res://scenes/gameover/GameOver.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_bottom = -3
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="CanvasLayer"]
+pause_mode = 2
+visible = false
+script = ExtResource( 4 )
+
+[node name="GameOverControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOverControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+
+[node name="VContainer" type="VBoxContainer" parent="GameOverControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverControl/VContainer"]
+margin_top = 62.0
+margin_right = 320.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 1 )
+text = "VOCE ANGOLOU"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HContainer" type="HBoxContainer" parent="GameOverControl/VContainer"]
+margin_top = 107.0
+margin_right = 320.0
+margin_bottom = 118.0
+alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="GameOverControl/VContainer/HContainer"]
+margin_left = 107.0
+margin_right = 212.0
+margin_bottom = 11.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Tente Novamente"
+
+[connection signal="pressed" from="GameOverControl/VContainer/HContainer/TryAgainButton" to="." method="_on_TryAgainButton_pressed"]

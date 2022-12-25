@@ -1,8 +1,8 @@
 extends Timer
 class_name Spawner
 
-const MIN_WAIT_TIME = 2.5
-const MAX_WAIT_TIME = 4.5
+const MIN_WAIT_TIME = 1.5
+const MAX_WAIT_TIME = 3.5
 
 var donut_scene = preload("res://scenes/donut/Donut.tscn") as PackedScene
 
